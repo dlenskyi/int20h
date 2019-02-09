@@ -1688,5 +1688,4 @@ class phpFlickr {
 			$this->request("flickr.urls.lookupUser", array("url"=>$url));
 			return $this->parsed_response ? $this->parsed_response['user'] : false;
 		}
-	}
-?>
+}

@@ -66,12 +66,9 @@ class Emotion
                             $emotionPhoto = $key;
                             $emotionId = self::getEmotionId($emotionPhoto);
                             $emotionUrlId = self::setEmotionUrl($idUrl, $emotionId['id']);
-//                            DELETE FROM image_url;DELETE FROM emotion_url;
                         }
                     }
                 } else {
-//                    debug("lol");
-                    echo  "lol";
                     $emotionPhoto = 'none';
                     $emotionId = self::getEmotionId($emotionPhoto);
                     $emotionUrlId = self::setEmotionUrl($idUrl, $emotionId['id']);
@@ -86,9 +83,7 @@ class Emotion
     public static function checkAvailability($url) {
         $instance = ConnectDb::getInstance();
         $db = $instance->getConnection();
-
         $sql = "SELECT * FROM image_url WHERE img_url=:url";
-
         $result = $db->prepare($sql);
         $result->bindParam(':url', $url, PDO::PARAM_STR);
         $result->execute();
@@ -101,9 +96,7 @@ class Emotion
     public static function addUrl($url) {
         $instance = ConnectDb::getInstance();
         $db = $instance->getConnection();
-
         $sql = "INSERT INTO image_url (img_url) VALUES (:img_url)";
-
         $result = $db->prepare($sql);
         $result->bindParam(':img_url', $url);
         $result->execute();
@@ -116,7 +109,6 @@ class Emotion
     public static function getUrlList() {
         $instance = ConnectDb::getInstance();
         $db = $instance->getConnection();
-
         $sql = "SELECT img_url FROM image_url";
         $result = $db->prepare($sql);
         $result->execute();
@@ -141,7 +133,6 @@ class Emotion
 
         $fields_string = http_build_query($data);
         $ch = curl_init();
-
         curl_setopt($ch,CURLOPT_URL, $url);
         curl_setopt($ch,CURLOPT_POST, count($data));
         curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
@@ -173,9 +164,7 @@ class Emotion
     public static function getEmotionId($emotion) {
         $instance = ConnectDb::getInstance();
         $db = $instance->getConnection();
-
         $sql = "SELECT id FROM emotion WHERE emotion=:emotion";
-
         $result = $db->prepare($sql);
         $result->execute(['emotion' => $emotion]);
         $id = $result->fetch(PDO::FETCH_ASSOC);
@@ -185,9 +174,7 @@ class Emotion
     public static function setEmotionUrl ($idUrl, $idEmotion) {
         $instance = ConnectDb::getInstance();
         $db = $instance->getConnection();
-
         $sql = "INSERT INTO emotion_url (id_emotion, id_image_url) VALUES (:id_emotion, :id_image_url)";
-
         $result = $db->prepare($sql);
         $result->bindParam(':id_emotion', $idEmotion);
         $result->bindParam(':id_image_url', $idUrl);
@@ -199,10 +186,8 @@ class Emotion
     }
 
     public static function getEmotionUrlList() {
-//        SELECT i.img_url, e.emotion FROM image_url AS i, emotion AS e JOIN emotion_url AS eu WHERE i.id=eu.id_image_url AND e.id=eu.id_emotion ORDER BY i.date DESC;
         $instance = ConnectDb::getInstance();
         $db = $instance->getConnection();
-
         $sql = "SELECT i.img_url, e.emotion FROM image_url AS i, emotion AS e JOIN emotion_url AS eu WHERE i.id=eu.id_image_url AND e.id=eu.id_emotion ORDER BY i.date DESC;";
         $result = $db->prepare($sql);
         $result->execute();

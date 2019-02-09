@@ -9,7 +9,6 @@
 require 'application/lib/Dew.php';
 
 use application\core\Router;
-use application\core\Db;
 
 spl_autoload_register(function ($class) {
     $path = str_replace('\\', '/', $class. '.php');
