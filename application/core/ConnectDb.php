@@ -15,6 +15,7 @@ class ConnectDb {
     private $user;
 
     // The db connection is established in the private constructor.
+    // mysql://bd053e007855d2:221e3d0b@us-cdbr-iron-east-03.cleardb.net/heroku_57235a458eda35a?reconnect=true
     private function __construct()
     {
         if ($_SERVER['SERVER_NAME'] == "thawing-island-242342379.herokuapp.com") {
@@ -24,10 +25,10 @@ class ConnectDb {
             $this->pass = $url["pass"];
             $this->name = substr($url["path"], 1);
         } else {
-            $this->host = 'localhost';
-            $this->user = 'root';
-            $this->pass = '11111111';
-            $this->name = 'int20h';
+            $this->host = 'us-cdbr-iron-east-03.cleardb.net';
+            $this->user = 'bd053e007855d2';
+            $this->pass = '221e3d0b';
+            $this->name = 'heroku_57235a458eda35a';
         }
 
         $this->conn = new PDO("mysql:host={$this->host}; dbname={$this->name}", $this->user,$this->pass,
