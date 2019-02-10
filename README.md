@@ -10,5 +10,7 @@ git clone https://github.com/dlenskyi/int20h.git <br />
 Enable Apache2 server <br />
 In browser type: localhost/int20h
 ### To open this project in Heroku cloud platform:
-(https://thawing-castle-24253.herokuapp.com/) <br /> <br />
+* You have to uploade all files with .htaccess in work directory and
+change DB parameters in ./application/core/ConnectDb.php
+* (https://thawing-castle-24253.herokuapp.com/) <br /> <br />
 © 2019 vbudnik, dlenskyi
