@@ -11,8 +11,8 @@
     <script src="./public/js/script.js"></script>
 <div class="footer">
     <hr>
-    <p>&copy; 2019 <a href="https://www.facebook.com/profile.php?id=100004512672168&ref=bookmarks">vbudnik</a>,
-        <a href="https://www.facebook.com/denis.lenskiy">dlenskyi</a><p>
+    <p>&copy; 2019 <a class="copyright" href="https://www.facebook.com/profile.php?id=100004512672168&ref=bookmarks">vbudnik</a>,
+        <a class="copyright" href="https://www.facebook.com/denis.lenskiy">dlenskyi</a><p>
 </div>
 </body>
 </html>

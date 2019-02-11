@@ -71,3 +71,12 @@ h1 {
     background-color: #666;
     color: white;
 }
+
+.copyright {
+    color: orange;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
